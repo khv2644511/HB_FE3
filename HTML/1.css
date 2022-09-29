@@ -1,0 +1,25 @@
+.box1 {
+    border: 2px solid green;
+    width: auto;
+    height: auto;
+    font-size: 100px;
+    /* display: block; */
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+section {
+    display: block
+}
+
+#one {
+    height: 100px;
+}
+#two {
+    height: 100px;
+}
+#three {
+    height: 100px;
+}

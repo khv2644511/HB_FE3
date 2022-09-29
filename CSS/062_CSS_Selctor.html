@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            button {
+                border: 1px solid black;
+                padding: 15px;
+                background-color: brown;
+                border-radius: 5px;
+                color: white;
+                transition: all .5s;
+            }
+            button:hover {
+                border: 1px solid black;
+                letter-spacing: 3px;
+
+            }
+            a:active {
+                color: red;
+            }
+            input:focus {
+                border: 5px solid palevioletred;
+            }
+            input:checked+label {
+            background-color: lightgreen;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            가상 클래스 선택자 : 클래스가 없는데 있는 것처럼 처리(콜론이 1개입니다.)
+            가상 요소 선택자 : 요소가 없는데 있는 것처럼 처리(콜론이 2개입니다.)
+        -->
+        <button>hello</button>
+        <a href="#">hello</a>
+        <form action="" method="get">
+            <input type="text">
+            <input type="text">
+        </form>
+        <input id="check" class="checked" type="checkbox">
+        <label for="check">오늘 아침은 삼겹살입니다.</label>
+
+        <ul>
+            아래 ul태그의 li와 사촌 관계입니다. 형제가 아니에요!
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ul>
+        <ul>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ul>
+    </body>
+</html>

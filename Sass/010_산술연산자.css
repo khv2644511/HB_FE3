@@ -1,0 +1,19 @@
+.test {
+  width: calc(100% - 80px);
+}
+
+.one {
+  font-size: 5px;
+}
+
+.three {
+  font-size: -81px;
+}
+
+.six {
+  font-size: -14px;
+}
+
+.five {
+  font-size: 0.603125cm;
+}/*# sourceMappingURL=010_산술연산자.css.map */

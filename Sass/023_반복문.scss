@@ -1,0 +1,6 @@
+@for $hojun from 1 through 3 {
+    .profile-#{$hojun} {
+        background-color: red;
+        font-size: #{$hojun * 10}px;
+    }
+}

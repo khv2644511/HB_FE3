@@ -1,0 +1,66 @@
+@charset 'utf-8';
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    perspective: 1600px;
+}
+
+@keyframes run {
+    from {
+
+    }
+}
+
+.list-item {
+    position: fixed;
+    width: 340px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(360deg);
+    /* perspective는 직계 자식에게만 주기 때문에 li 모두에 perspective효과를 주기 위해 transform-style: preserve-3d;를 사용 */
+    transform-style: preserve-3d;
+}
+
+.list-item li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 뒤에 요소를 숨김 */
+    backface-visibility: hidden;
+    border: 1px solid pink;
+}
+
+.list-item li img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.list-item li:nth-child(1) {
+    /* 반지름 만큼 z축으로 이동 */
+    transform: rotate(0) translateZ(calc(340px*7/3.14/2));
+}
+
+.list-item li:nth-child(2) {
+    transform: rotateY(calc(360deg/7)) translateZ(calc(340px*7/3.14/2));
+}
+
+.list-item li:nth-child(3) {
+    transform: rotateY(calc(360deg/7*2)) translateZ(calc(340px*7/3.14/2));
+}
+.list-item li:nth-child(4) {
+    transform: rotateY(calc(360deg/7*3)) translateZ(calc(340px*7/3.14/2));
+}
+.list-item li:nth-child(5) {
+    transform: rotateY(calc(360deg/7*4)) translateZ(calc(340px*7/3.14/2));
+}
+.list-item li:nth-child(6) {
+    transform: rotateY(calc(360deg/7*5)) translateZ(calc(340px*7/3.14/2));
+}
+.list-item li:nth-child(7) {
+    transform: rotateY(calc(360deg/7*6)) translateZ(calc(340px*7/3.14/2));
+}

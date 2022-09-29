@@ -1,0 +1,8 @@
+@debug 100>50; // true
+@debug 10px < 17px; // true
+@debug 1000ms <=1s; // true
+
+// 숫자
+@debug 1px==1px; // true
+@debug 1px !=1em; // true
+// 익스텐션이라 출력안됨

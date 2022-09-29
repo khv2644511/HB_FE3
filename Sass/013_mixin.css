@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+}
+
+.aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+/*.card와 .aside 클래스 선택자의 적용한 스타일이 겹침*/
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+}
+
+.aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: wheat;
+}/*# sourceMappingURL=013_mixin.css.map */

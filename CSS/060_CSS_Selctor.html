@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .foo:first-child {
+            background-color: blue;
+        }
+        .foo:last-child {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 가상 클래스 선택자 : 클래스가 없는데 있는 것 처럼 처리(***콜론 1개 쓰기)-->
+    <!-- 가상 요소 선택자 :  요소가 없는데 있는 것 처럼 처리(***콜론 2개 쓰기) -->
+    <ul>
+        <!-- 주의사항 : 첫번쨰 선택자가 foo가 아닌 경우 선택이 안됩니다. -->
+        <!-- foo의 부모에서 첫번째 자식이 선택되는거임 -->
+        <!-- <div>hello</div> -->
+        <li class="foo">1</li>
+        <li class="foo">2</li>
+        <li class="foo">3</li>
+        <li class="foo">4</li>
+        <li class="foo">5</li>
+    </ul>
+</body>
+</html>

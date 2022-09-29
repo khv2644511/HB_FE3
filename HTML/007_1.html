@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <!--같은 탭 내에서 이동-->
+    <a href="https://www.naver.com">click</a>
+
+    <!-- 새로운 탭 -->
+    <a href="https://www.naver.com" target="_blank">click</a> 
+
+    <!-- 현재 경로를 기준으로 index.html을  찾음-->
+    <a href="./index.html">click</a>
+
+    <!-- 해쉬 링크 : 스크롤 영역이 생겼을 때, 페이지 내부에서 이동할 때 사용, id = three를 찾아서 내부 이동을 함-->
+    <a href="#three">click</a> 
+    <!-- html {scroll-behavior:smooth;} /*smooth의 빠르기를 조절할 순 없음*/ -->
+
+    <!--index.html 다운, 다운로드 팝업 발생됨-->
+    <a href="./index.html" download>click</a>
+    <br>
+
+    <!--둘의 차이 알기: 파일명 지정,
+    파일 없어서 저장안됨, 파일 포맷에 따라서 브라우저가 확장자를 바꿔줌-->
+    <a href="./hello.hwp">hwp click</a>
+    <br>
+    <a href="./hello.hwp" download="a.hwp">hwp download click</a>
+    <br>
+
+
+    <a href="./hello.pdf">pdf click</a>
+    <br>
+    <a href="./hello.pdf" download="a.pdf">pdf download click</a>
+
+    <!-- 전화를 활성화할 수 잇는 애플리케이션을 열어줌-->
+    <a href="tel:+82027777777">(02)777-7777</a> /
+    <a href="mailto:hello@gmail.com">hello@gmail.com</a>
+
+
+
+    <section id="one">one</section>
+    <section id="two">two</section>
+    <section id="three">three</section>
+
+    <picture>
+        <source srcset="./sample/a.jpg" media="(min-width:960px)" />
+        <source srcset="./sample/b.jpg" media="(min-width:620px)" />
+        <img src="./sample/c.jpg" alt="귀여운 아기 팽귄들" />
+    </picture>
+
+</body>
+</html>

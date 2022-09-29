@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container {
+            /* 높이를 잡아주어야 수직 가운데 정렬이 가능하다! */
+            height: 1000px;
+            display: flex;
+            /* 주축 정렬 */
+            justify-content: center;
+            /* 교차축 정렬 */
+            align-items: center;
+        }
+        .item {
+            width:50px;
+            height: 50px;
+            background-color: pink;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>

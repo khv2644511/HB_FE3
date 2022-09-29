@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- <img
+    width="200px"
+    srcset="img/logo_3.png 700w,
+            img/logo_2.png 600w,
+            img/logo_1.png 300w"
+    src="a.png"
+    alt="test"> -->
+
+        <!-- window.innerwidtg -->
+        <picture>
+            <!-- 960 이상일때 -->
+            <source srcset="./sample/a.jpg" media="(min-width:960px)" />
+
+            <!-- 620 이상일때 -->
+            <source srcset="./sample/b.jpg" media="(min-width:620px)" />
+
+            <!-- 620 미만 -->
+            <img src="./sample/c.jpg" alt="귀여운 아기 팽귄들" />
+        </picture>
+</body>
+</html>

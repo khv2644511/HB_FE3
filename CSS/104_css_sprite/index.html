@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        .txt-hide {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        .labl-hold::before {
+            display: inline-block;
+            content: "";
+            width: 22px;
+            height: 22px;
+            vertical-align: -4px;
+            background-image: url("/CSS/104_css_sprite/images/retina_check_box.png");
+            background-position: -52px -10px;
+            /*background-size: 84px 42px;*/
+        }
+
+        /* :checked 되었을 때 이미지 바꾸기 */
+        .inp-hold:checked+.labl-hold::before {
+            background-image: url("/CSS/104_css_sprite/images/retina_check_box.png");
+            background-position: -10px -10px;
+            /*background-size: 84px 42px; 안써도됨*/
+        }
+
+        /* 포커스 되었을 때 아웃라인 만들기 */
+        .inp-hold:focus+.labl-hold::before {
+            outline: 2px solid #000;
+            outline-offset: 5px;
+            border-radius: 50%;
+
+            /* 박스가 밀림 */
+            /* border: 2px solid #000; */
+            /* 써도 안됨 */
+            box-sizing: border-box;
+        }
+
+        @media screen and (-webkit) {}
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="inpHold" class="inp-hold txt-hide" />
+    <label for="inpHold" class="labl-hold">선택해주세요</label>
+</body>
+
+</html>

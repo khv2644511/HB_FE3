@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>hello</h1>
+    <!-- 비어있는 경우 스크린리더가 읽지 않음 -->
+    <img src="jeju.jpg" alt="" />
+    
+    <!-- 스크린 리더가 a(파일명) 읽음 -->
+    <img src="jeju.jpg" />
+
+    <!-- 스크린 리더가 이미지를 읽음 -->
+    <img src="jeju.jpg" alt="이미지">
+    
+    <!-- 상대경로 : 현재 폴더에 jeju.jpg -->
+    <!-- 상대경로 : 지금열려있는 파일 기준 -->
+    <img src="./jeju.jpg" alt="이미지">
+
+    <!-- 상대경로 : 상위 폴더 > img 폴더 > jeju.jpg  -->
+    <img src="../img/jeju.jpg" alt="이미지">
+
+    <!-- 절대경로  -->
+    <img src="/Users/hyebin/Desktop/FE3/HTML/jeju.jpg" alt="">
+    <img src="http://www.paullab.co.kr/images/ceo.png" alt="이미지" />
+
+
+    <img
+    width="200px"
+    srcset="img/logo_1.png 2x,
+            img/logo_2.png 3x"
+    src="jeju.jpg"
+    alt="test">
+
+
+</body>
+</html>

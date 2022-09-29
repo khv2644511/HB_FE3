@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    src: url(/CSS/102/img/fonts/SpoqaHanSansNeo-Medium.otf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    src: url(/CSS/102/img/fonts/SpoqaHanSansNeo-Regular.otf);
+    font-weight: 400;
+}
+
+body {
+    font-family: "Spoqa Han Sans Neo", "snas-serif";
+    line-height: 15px;
+    font-weight: 400;
+    font-size: 12px;
+
+}
+
+* {
+    box-sizing: border-box;
+    
+}
+
+.txt-hide {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.cont-login {
+    width: 350px;
+    margin: 20px auto;
+    padding: 18px 15px 17px;
+    border: 1px solid #dbdbdd;
+    border-radius: 5px;
+    /* display: inline-block; */
+    /* overflow: hidden; */
+}
+
+.cont-login .txt-login {
+    margin-bottom: 16px;
+}
+
+.cont-login .link_login {
+    display: block;
+    padding: 13px 20px 12px;
+    margin-bottom: 17px;
+    border-radius: 4px;
+    background-color: #711bff;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+}
+
+.img_login {
+    width: 57px;
+    height: 11px;
+    margin-right: 8px;
+}
+
+.cont-login .find {
+    float: left;
+}
+
+.cont-login .join {
+    float: right;
+}
+
+.clearFix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+
+.cont-login .find * {
+    /* float을 넣으면 display속성이 block으로 변함 그래서 baseline이 사라짐  */
+    float: left;
+}
+
+.cont-login .join {
+    float: right;
+}
+.cont-login .join * {
+    float: left;
+}
+
+.cont-login .img-find, .cont-login .img-join {
+    margin-left: 1px;
+    width: 16px;
+    height: 16px;
+}
+
+.find [class^=link], .join [class^=link] {
+    color: #767677;
+    text-decoration: none;
+    margin-left: 4px;
+
+}
+
+.find .link-id::after {
+    display: inline-block;
+    content: '';
+    width: 1px;
+    height: 11px;
+    background-color: #767677;
+    margin: 0 5px;
+    vertical-align: -1px;
+}
+

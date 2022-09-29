@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+
+        /* 
+            매우 중요!
+            
+            display: inline;
+            display: inline-block;
+            display: flex;
+            display: grid;
+        */
+
+        /* block은 width와 height로 컨트롤할 수 있다. */
+        div:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: block;
+            
+        }
+
+        div:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: block;
+        }
+
+        /* width 와 height 속성을 사용할 수 없습니다. */
+        /* 패딩과 마진, 보더 속성을 사용할 수 있지만 마진 속성은 좌우만 조절할 수 있습니다. 해당 속성들의 상하 값(top, bottom)들은 다른 요소들을 밀어내지 않습니다. */
+        div:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: inline;
+            
+        }
+
+        div:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: inline;
+            
+        }
+
+        div:nth-child(5) {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: inline-block;
+            
+        }
+
+        div:nth-child(6) {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: inline-block;
+            
+        }
+
+        /* 이미지는 인라인 요소지만 width height 지정이 가능함 */
+
+    </style>
+</head>
+<body>
+    <!-- block -->
+    <div>hello</div>
+    <div>hello</div>
+
+    <!-- inline -->
+    <div>hello</div>
+    <div>hello</div>
+
+    <!-- inline-block -->
+    <div>hello</div>
+    <div>hello</div>
+
+</body>
+</html>

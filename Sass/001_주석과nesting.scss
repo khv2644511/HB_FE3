@@ -1,0 +1,35 @@
+//한줄주석
+/*여러줄주석ㅇㅇ앙*/
+ul {
+  li {
+    color: red;
+    font-size: 10px;
+  }
+}
+
+.one {
+  color: red;
+  .two {
+    color: green;
+    .three {
+      color: blue;
+    }
+    .four {
+      color: black;
+    }
+  }
+}
+
+.one_ {
+  color: red;
+}
+
+.two_ {
+  color: green;
+  .three_ {
+    color: blue;
+  }
+  .four_ {
+    color: black;
+  }
+}
