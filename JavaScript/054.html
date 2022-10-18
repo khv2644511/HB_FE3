@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <style>
+    .blue {
+      background-color: skyblue;
+    }
+  </style>
+  <body>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <hr />
+    <div class="myDiv">div 입니다!</div>
+    <div class="myDiv">div 입니다!</div>
+    <div class="myDiv">div 입니다!</div>
+    <div class="myDiv">div 입니다!</div>
+    <div class="myDiv">div 입니다!</div>
+
+    점심 식단
+    <article id="container">
+      <ul>
+        <li>탕수육</li>
+        <li class="item-second">유산슬</li>
+        <li>짜장면</li>
+      </ul>
+    </article>
+
+    저녁 식단
+    <article>
+      <ul>
+        <li>된장국</li>
+        <li class="item-second">김치찌게</li>
+        <li>해장국</li>
+      </ul>
+    </article>
+
+    <button>hello</button>
+
+    <button class="red">Make me BLUE!</button>
+    <script>
+      // id로 접근하는 방법
+      // console.log(document.getElementById("myDiv"));
+
+      //   찾아서 저장하고 사용한다!
+      // const myDiv = document.getElementById("myDiv");
+      // myDiv.textContent = "hi";
+
+      //   태그로 접근하는 방법
+      // console.log(document.getElementsByTagName("div"));
+      // const div = document.getElementsByTagName("div")[4];
+      // div.innerText = "키ㅣ";
+
+      //   클래스이름으로 접근
+      // console.log(document.getElementsByClassName("myDiv"));
+
+      // 첫번째 item-second, 첫번쨰 li
+
+      // 탐색을 document부터 시작할 필요는 없다
+      // const container = document.getElementById("container");
+      // console.log(container.getElementsByClassName("item-second")[0]);
+      // console.log(container.getElementsByTagName("li")[0]);
+
+      // console.log(document.querySelector(".item-second"));
+      // console.log(document.querySelectorAll("li"));
+
+      //   console.log(document.querySelector("#item-second"));
+
+      //   const cl = container.getElementsByClassName("item-second");
+      //   console.log(cl[0]);
+
+      //   const firstli = container.getElementsByTagName("li");
+      //   console.log(firstli[0]);
+
+      const myBtn = document.querySelectorAll("button");
+      // myBtn.forEach((Element) => {
+      //   console.log(Element);
+      // });
+      myBtn.forEach((element) => {
+        console.log(element);
+        element.addEventListener("click", function () {
+          //     // blue 라는 클래스의 속성 값을 지정 할 수 있습니다.
+          // myBtn.classList.add("blue");
+          // myBtn.classList.remove("blue"); // 클래스를 제거합니다.
+          element.classList.toggle("blue"); //클래스를 토글합니다. 없으면 넣어주고, 있으면 제거합니다.
+          console.log(element.classList.contains("blue")); // 해당하는 클래스가 있는지 확인합니다.
+        });
+      });
+    </script>
+  </body>
+</html>

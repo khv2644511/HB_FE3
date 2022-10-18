@@ -1,0 +1,38 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "productName": "버그를 Java라 버그잡는 개리씨 키링 개발자키링 금속키링",
+      "price": 12500,
+      "stockCount": 100,
+      "thumbnailImg": "asset/img/1/thumbnailImg.jpg",
+      "option": [],
+      "discountRate": 0,
+      "shippingFee": 1500,
+      "detailInfoImage": [
+        "asset/detail/2/detail1.png",
+        "asset/detail/2/detail2.png"
+      ],
+      "viewCount": 0,
+      "pubDate": "2022-02-28",
+      "modDate": "2022-02-28"
+    },
+    {
+      "id": 2,
+      "productName": "우당탕탕 라이캣의 실험실 스티커 팩",
+      "price": 3500,
+      "stockCount": 1000,
+      "thumbnailImg": "asset/img/2/thumbnailImg.jpg",
+      "option": [],
+      "discountRate": 0,
+      "shippingFee": 1500,
+      "detailInfoImage": [
+        "asset/detail/2/detail1.png",
+        "asset/detail/2/detail2.png"
+      ],
+      "viewCount": 0,
+      "pubDate": "2022-02-28",
+      "modDate": "2022-02-28"
+    }
+  ]
+}

@@ -72,7 +72,8 @@ console.log(s2);
 
 // 콤마 없애기
 s2 = "100,000,000";
-let s = s2.join(",");
+s = s2.split(',')
+let s = s2.join("");
 s.join("");
 
 //문자열 뒤집기

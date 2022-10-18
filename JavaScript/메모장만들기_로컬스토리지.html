@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모장</title>
+  </head>
+  <body>
+    <input type="text" name="" id="inp" />
+    <button type="button" class="btn" id="">메모</button>
+    <div class="print"></div>
+    <script>
+      const content = document.querySelector("#inp");
+      const show = document.querySelector(".print");
+      const btnFirst = document.querySelector(".btn");
+      const arrayList = [];
+      btnFirst.addEventListener("click", () => {
+        arrayList.push(content.value);
+        // console.log(arrayList);
+        render();
+      });
+
+      const render = () => {
+        // show.innerHTML = `<h3>${content.value}</h3>`;
+        console.log(content.value);
+        show.innerHTML = arrayList.reduce((acc, a) => {
+          console.log(a);
+          console.log(acc);
+          acc = acc + `<h3>${a}</h3>`;
+          console.log(acc);
+
+          return acc;
+        }, "");
+        // localStorage.setItem("one", "하나");
+        // const print = localStorage.getItem("one");
+        // console.log(localStorage.getItem("one"));
+      };
+
+      //     const input = document.querySelector('.input')
+      // const display = document.querySelector('.display')
+      // const button = document.querySelector('.submitButton')
+      // const localStotageList = localStorage.getItem('memo') || "[]"
+      // let dataArray = JSON.parse(localStotageList)
+
+      // const render = () => {
+      //     localStorage.setItem('memo', JSON.stringify(dataArray))
+      //     display.innerHTML = dataArray.reduce((acc, e) => {
+      //         acc = acc + `<h3>${e}</h3>`
+      //         return acc
+      //     }, '')
+      // }
+
+      // button.onclick = () => {
+      //     dataArray.push(input.value)
+      //     render()
+    </script>
+  </body>
+</html>

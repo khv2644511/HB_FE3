@@ -59,15 +59,12 @@
 _* : 앞에 있는 문자가 0개 ~ N개
 _+ : 앞에 있는 문자가 1개 ~ N개
 _? : 앞에 있는 문자가 0개 ~ 1개
-
 {3} : 3개
 {3,} : 3개 이상
 {1,3} : 1개 ~ 3개
-
 _* : 앞에 있는 문자가 0개 ~ N개 ({0,})
 _+ : 앞에 있는 문자가 1개 ~ N개({1,})
 _? : 앞에 있는 문자가 0개 ~ 1개 ({0,1})
-
 /[0-9]{3}[-.* ][0-9]{4}[-.* ][0-9]{4}/gm
 /[0-9]{2,3}[-.* ]?[0-9]{3,5}[-.* ]?[0-9]{4}/gm
 /[0-9a-zA-Z]+@[0-9a-zA-Z]+.[a-zA-Z]+/gm
@@ -117,9 +114,72 @@ for (i of data){
     console.log('----------')
 }
 
+// 질의응답
+// 명시된 문제 제한 조건
+// - 스킬 중복 없음. -> 정규식으로 제외하고 나서의 문자열의 길이는 인자보다 길어질 수는 없어서 indexof() 사용가능.
+// - 예를 들어 CBDD 이런 스킬트리를 인자로 줄 수 없음.
+
+// D : C와 B를 배우지 않고서는 배울 수 없음.
+// B : C를 배우지 않고서는 B를 배울 수 없음.
+// C : 어쨌거나 C부터 배워야 다른 스킬을 배울 수 있으니, C는 무조건 맨 앞에 있어야 함.
+
+// 그렇기 때문에, 
+
+// 먼저 스킬트리와 관계 없는 알파벳은 정규식으로 제외를 하고, 
+// Ex) “ECBF” -> “CB”
+// “CBD”.indexof(“CB”) === 0 이면 제대로 된 스킬트리라 할 수 있음.
+
+// 정규식으로 제외를 하고, 남은 문자열이 “D”라면
+// “CBD”.indexof(“D”) 는 0이 아니고 2라서 스킬트리라 할 수 없음.
+
+// 조건문을 세워서 해당 조건이 맞을 때 카운트 올리고 반환.
+
+
+function solution(skill, skill_trees) {
+    let 패턴 = '[' + skill + ']';
+    let 표현식 = new RegExp(패턴, 'g');
+    let answer = 0;
+    for (i of skill_trees){
+        if(i.match(표현식)){
+            //console.log(i.match(표현식))
+            //console.log(표현식)
+            //console.log(skill.indexOf(i.match(표현식).join('')))
+            if(skill.indexOf(i.match(표현식).join('')) === 0){
+                answer += 1
+            }
+        } else {
+            answer += 1
+        }
+    }
+    return answer;
+}
+
+console.log(solution("CBD", ["BACDE", "CBADF", "AECB", "BDA"]))
+console.log(solution("CBD", ["ACBD", "CBEF", "BACDE", "CBADF"]))
+console.log(solution("CB", ["ABCED", "ECBEF", "BACDE", "BCADF"]))
+console.log(solution("ABC", ["ABC", "AESBNC", "ABKJC", "BAC", "ABC"]))
+console.log(solution("ABC", ["ABC", "AESBNC", "ABKJC", "BAC", "AB"]))
+console.log(solution("ABC", ["ABC", "AESBNC", "ABKJC", "BAC", "A"]))
+console.log(solution("ABC", ["ABC", "AESBNC", "ABKJC", "BAC", "A"]))
+console.log(solution("AB", ["C", "D"])) // 2로 카운팅 되야 합니다.
+
+function solution(skill, skill_trees) {
+    let trimmedArr = skill_trees.map(el => el.replace(new RegExp(`[^${skill}]`, 'g'), ''));
+    let cnt = 0;
+    for (const i of trimmedArr) {
+        if (skill.indexOf(i) === 0) {
+            cnt += 1;
+        }
+    }
+    return cnt;
+}
+
+
+
 // 11. 캐릭터 클래스
-/\w{5} /g
-/\W/g
+/\w/g : 워드
+/\w{5} /g : 5개의 글자와 스페이스 하나
+/\W/g : not 워드
 /\d/gm : 숫자
 /\D/gm : not 숫자
 /\s/gm : 스페이스
@@ -169,3 +229,71 @@ i : 대소문자를 구분하지 않음
 gi : 검색 범위를 전역으로 확대하면서 대소문자를 구분하지 않음
 m : 여러줄을 동시에 매칭함
 */
+
+
+
+////////////////// 연습문제 /////////////////
+
+// 0 문자 제거
+let s = '010100020201020304812123';
+s.replace(/[^1-9]/g,"")
+'11221234812123'
+
+// 앞 뒤 공백 제거(캐릭터 클래스 `\s`사용)
+s = '   010100020201020304812123    '
+s.replace(/^\s+|\s+$/g,'')
+'010100020201020304812123'
+
+// 문자열 내 공백 제거
+s = '  01010002020   102030  4812123  ';
+s.replace(/\s/g,'')
+'010100020201020304812123'
+
+// 개행 제거
+s = `
+a
+b
+c
+d
+`
+'\na\nb\nc\nd\n'
+s.replace(/\n/g,'')
+'abcd'
+
+s = "hello world HELLO WORLD";
+s.match(/hello/gi);
+
+s1 = '010-5000-2000'
+s2 = '010 5000 2000'
+s3 = '010~5000!2000'
+s4 = '010!!5000!!2000'
+s5 = '01050002000'
+
+s1.split(/-/g)
+
+// hint
+// s.split(/([a-z])([0-9])/g)
+// s.split(/([a-z]{3})/g)
+
+s1.split(/([0-9]{3})[- ~!]*([0-9]{4})[- ~!]*([0-9]{4})/)
+
+
+
+
+
+
+////////////////// 그룹 연습문제 /////////////////
+'gogaooogogooo'.match(/(go)/g); // ['go', 'go', 'go']
+'gogaooogogooo'.match(/[go]/g); // ['g', 'o', 'g', 'o', 'o', 'o', 'g', 'o', 'g', 'o', 'o', 'o']
+
+// 숫자 2자리와 알파벳 하나씩이 매칭되도록 다음의 패턴에서 문자열을 추출하시오. 숫자는 항상 2개만 있고, 알파벳은 1개 이상 있을 수 있습니다.
+
+// 87a99b00fww89e => ['87a', '99b', '00f', '89e']
+'87a99b00fww89e'.match(/(\d+)(\w)/g)
+'87a99b00fww89e'.match(/[0-9][0-9][a-zA-Z]/g)
+'87a99b00fww89e'.match(/[0-9]+[a-zA-Z]/g)
+
+// 다음 패턴에서 ello와 zi 는 몇 개가 있는가?
+'hellohelellolozihelloelzilellozi'.match(/ello/g)
+'hellohelellolozihelloelzilellozi'.match(/zi/g)
+'hellohelellolozihelloelzilellozi'.match(/(ello|zi)/g)

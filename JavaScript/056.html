@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> </title>
+  </head>
+  <body>
+    <ul></ul>
+    <button>Make me MORE!</button>
+
+    <div id="parentElement">
+      <span id="childElement">hello guys~</span>
+    </div>
+    <script>
+      document.createElement(target); //target 요소를 생성합니다.
+      // document.createTextNode(target); //target 텍스트를 생성합니다.
+      // element.appendChild(target);    target 요소를 element의 자식으로 위치합니다.
+      // element.removeChild(target);    element의 target 자식 요소를 제거합니다.
+
+      //   const myBtn = document.querySelector("button");
+      //   const myUl = document.querySelector("ul");
+
+      //   myBtn.addEventListener("click", function () {
+      //     for (let i = 0; i < 5; i++) {
+      //       // li 요소를 생성합니다
+      //       const myLi = document.createElement("li");
+      //       // text 노드를 생성합니다
+      //       const myTxt = document.createTextNode("안녕하세용!" + i);
+      //       // 자식으로 요소를 배치합니다
+      //       myLi.appendChild(myTxt);
+      //       myUl.appendChild(myLi);
+      //     }
+
+      //     const li = document.querySelector("li");
+      //     // 자식 요소를 제거합니다
+      //     myUl.removeChild(li);
+      //   });
+
+      // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
+      const span = document.createElement("span");
+
+      const myText = document.createTextNode("good morning!");
+
+      span.appendChild(myText);
+      const sibling = document.getElementById("childElement");
+      const parentDiv = document.getElementById("parentElement");
+      //span 요소를 sibling의 앞으로 배치합니다
+      parentDiv.insertBefore(span, sibling);
+    </script>
+  </body>
+</html>
