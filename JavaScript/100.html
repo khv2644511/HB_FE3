@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // const me = {
+      //   name: "웨이드",
+      //   address: "제주도 제주시 인다 1길",
+      //   phoneNum: "010-8001-6536",
+      //   canWalk: function () {
+      //     console.log("웨이드가 걷는다.");
+      //   },
+      //   teaching: function (student) {
+      //     student.levelUp();
+      //   },
+      // };
+
+      // const student = {
+      //   level: 1,
+      //   levelUp: function () {
+      //     this.level++;
+      //   },
+      // };
+      // me.teaching(student);
+
+      // const you = me;
+
+      // const me = {
+      //   name: "혜빈",
+      //   address: "동탄반석로",
+      //   cantalk: function (friend) {
+      //     friend.canSmile();
+      //   },
+      // };
+
+      // const friend = {
+      //   happyLevel: 1,
+      //   canSmile: function () {
+      //     this.happyLevel++;
+      //   },
+      // };
+
+      // hyebin.cantalk(friend);
+
+      function NewFactory(name) {
+        this.name = name;
+        this.sayYourName = function () {
+          console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        };
+      }
+
+      let robot1 = new NewFactory("브랜든");
+
+      //실습 : 음식 이름의 배열을 전달하면 배열안에서 랜덤하게 메뉴를 뽑아내는 로봇객체의 생성자를 만들어보세요.
+
+      function SelectRandomMenu(array) {
+        this.length = array.length;
+        this.menu = array[Math.floor(Math.random() * this.length)];
+        this.printMenu = function () {
+          console.log(this.menu);
+        };
+      }
+
+      let robot = new SelectRandomMenu([
+        "사과",
+        "오렌지",
+        "치킨",
+        "로제떡볶이",
+        "아이셔",
+      ]);
+      // - 실습: 우리가 만들었던 음식 로봇객체의 메서드를 프로토타입으로 분리해보세요, 그리고 객체의 메서드가 서로 동일한 주소를 참조하는지 확인해보세요.
+      function SelectRandomMenu(array) {
+        this.length = array.length;
+        this.menu = array[Math.floor(Math.random() * this.length)];
+      }
+      SelectRandomMenu.prototype.printMenu = function () {
+        console.log(this.menu);
+      };
+      let robot1 = new SelectRandomMenu([
+        "사과",
+        "오렌지",
+        "치킨",
+        "로제떡볶이",
+        "아이셔",
+      ]);
+
+      let robot2 = new SelectRandomMenu(["치즈", "감", "귤", "레몬", "키위"]);
+
+      // - 실습2: 우리가 객체지향 개념에서 만들었던 ‘나’ 와 ‘대상’ 객체를 생성자를 통해서 만들어 볼 수 있도록 코드를 수정해봅시다.
+      // const me = {
+      //   name: "웨이드",
+      //   address: "제주도 제주시 인다 1길",
+      //   phoneNum: "010-8001-6536",
+      //   canWalk: function () {
+      //     console.log("웨이드가 걷는다.");
+      //   },
+      //   teaching: function (student) {
+      //     student.levelUp();
+      //   },
+      // };
+
+      // const student = {
+      //   level: 1,
+      //   levelUp: function () {
+      //     this.level++;
+      //   },
+      // };
+      // me.teaching(student);
+
+      function Me(name, address, phoneNum) {
+        // 생성자 함수의 this는 인스턴스 생성 시 전달받는 값
+        this.name = name;
+        this.address = address;
+        this.phoneNum = phoneNum;
+      }
+
+      Me.prototype.canWalk = function () {
+        console.log("웨이드가 걷는다.");
+      };
+
+      Me.prototype.teaching = function (student) {
+        student.levelUp();
+      };
+      const me = new Me("hye", "dongtan", "010-1234-7777");
+      const me2 = new Me("kai", "seoul", "010-222-111");
+
+      function Student(level) {
+        this.level = level;
+      }
+
+      Student.prototype.levelUp = function () {
+        this.level++;
+      };
+      const student1 = new Student(1);
+      const student2 = new Student(5);
+    </script>
+  </body>
+</html>

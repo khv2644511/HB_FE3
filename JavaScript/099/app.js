@@ -84,10 +84,12 @@ function genItem(val, complete) {
   li.appendChild(btn);
 
   btn.addEventListener("click", () => {
+    event.stopPropagation();
+
     li.remove();
 
     //할일 데이터의 업데이트 함수
-    // buildTasks();
+    buildTasks();
 
     // 다운로드 버튼 노출 함수
     showDownload();

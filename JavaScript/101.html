@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      //   function NewFactory(name) {
+      //     this.name = name;
+      //     this.sayYourName = function () {
+      //       console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+      //     };
+      //   }
+
+      //   let robot1 = new NewFactory("개리");
+      //   let robot2 = new NewFactory("뮤라");
+      //   let robot3 = new NewFactory("알리");
+
+      function NewFactory2(name) {
+        this.name = name;
+      }
+
+      NewFactory2.prototype.sayYourName = function () {
+        console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+      };
+
+      //   그럼 메서드를 생성할 때는 생성자 함수 내에 작성하는 것 보다 prototype으로 작성해서 메모리를 아낄 수 있다! 라고 이해하면 될까요..?
+      //   that's right
+    </script>
+  </body>
+</html>
