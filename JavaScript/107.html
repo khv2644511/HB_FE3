@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 클로저를 이용한 비공개 프로퍼티1
+      // 모듈 + 사용자 정의 혼합패턴 이라고도 함..
+      function Person() {
+        let age = 30; //비공개 프로퍼티
+
+        function innerPerson() {}
+
+        innerPerson.prototype.getAge = function () {
+          return age;
+        };
+
+        return innerPerson;
+      }
+
+      const PersonFunc = new Person();
+      const person = new PersonFunc();
+
+      // IIFE(즉시실행함수) 작성 방법
+      (function () {
+        console.log("IIFE");
+      })();
+
+      // IIFE를 이용한 모듈 사용자 프로퍼티2(비공개 프로퍼티2)
+      const NewPerson = (function () {
+        let age = 30;
+        function innerPerson() {}
+
+        innerPerson.prototype.getAge = function () {
+          return age;
+        };
+
+        return innerPerson;
+      })();
+
+      const personWithSecret = new NewPerson();
+    </script>
+  </body>
+</html>

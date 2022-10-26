@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo list</title>
+  </head>
+  <body>
+    <script>
+      // 간단한 투두 리스트기능 구현해보기
+      // 1. 해야할 일 Todo 클래스(내용, 상태 두 가지 프로퍼티를 가집니다.)
+      // 2. Todo 클래스는 상태를 변경하는 changeState 메서드를 가집니다.
+      // 3. 할일의 목록을 관리하는 관리자를 추상화한 TodoManager 클래스 (할일 목록을 프로퍼티로 가집니다.)
+      // 4. 할 일을 저장하고(addItem), 할 일의 목록을 보여주며(getItems), 할 일의 남은 갯수를 반환하는(getLeftTodoCount) 세 가지 메소드를 가집니다.
+      class Todo {
+        constructor(todo, finished) {
+          this.todo = todo;
+          this.finished = finished;
+        }
+        changeState() {
+          this.finished = !this.finished;
+          //   if (this.finished === true) {
+          //     this.finished = false;
+          //   } else {
+          //     this.finished = true;
+          //   }
+        }
+      }
+      class TodoManager {
+        constructor() {
+          this.todolist = [];
+        }
+        addItem(todo, finished = false) {
+          const addTodo = new Todo(todo, finished);
+          this.todolist.push(addTodo);
+        }
+        getItems() {
+          return this.todolist;
+          //   console.log(todolist);
+        }
+        getLeftTodoCount() {
+          return this.todolist.filter((item) => item.finished === false).length;
+        }
+      }
+
+      //   const myTodo = new TodoManager();
+      // myTodo.addItem('점심먹고 10분간 잠자기')
+      // myTodo.getItems() // finished: false or true
+      //   myTodo.getLeftTodoCount()
+      //   myTodo.getItems()[0].changeState();
+      //   myTodo.getLeftTodoCount();
+
+      // 재현님 코드
+      //   class Todo {
+      //         constructor(item, finished) {
+      //             this.item = item
+      //             this.finished = finished
+      //         }
+
+      //         changeState() {
+      //             this.finished = !this.finished;
+      //         }
+      //     }
+
+      //     class TodoManager {
+      //         constructor() {
+      //             this.todoList = [];
+      //         }
+
+      //         addItem(item, finished = false) {
+      //             const todo = new Todo(item, finished);
+      //             this.todoList.push(todo);
+      //         }
+
+      //         getItems() {
+      //             return this.todoList
+      //         }
+
+      //         getLeftTodoCount() {
+      //             return this.todoList.filter(item => {
+      //                 item.finished === false
+      //             }).length;
+    </script>
+  </body>
+</html>

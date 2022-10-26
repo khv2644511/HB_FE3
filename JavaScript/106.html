@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // 소세지 클래스 만들기 실습
+      class MakeSausage {
+        constructor(taste1, taste2) {
+          this.inside1 = taste1;
+          this.inside2 = taste2;
+        }
+        taste() {
+          console.log(`${this.inside1}와 ${this.inside2} 맛이 난다!`);
+        }
+      }
+
+      class FiresSausage extends MakeSausage {
+        constructor(taste1, taste2, taste3) {
+          super(taste1, taste2);
+          this.inside3 = taste3;
+        }
+
+        taste() {
+          console.log(
+            `${this.inside1}와 ${this.inside2}와 ${this.inside3} 맛이 난다!`
+          );
+          // firetaste() {
+          //   this.taste();
+          //   console.log("불맛이 추가되었습니다.");
+          // }
+        }
+      }
+    </script>
+  </body>
+</html>

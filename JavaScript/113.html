@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .target {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: pink;
+        /* transform: translateX(100px); */
+        /* transition: 0.2s; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="target"></div>
+    <script>
+      const target = document.querySelector(".target");
+      let pos = 0;
+
+      // 사용자가 누르는 키의 상태를 저장하는 객체
+      let keys = {};
+      // ArrowLefr: true;
+
+      function move(event) {
+        keys[event.key] = true;
+        console.log(keys);
+      }
+
+      function stop(event) {
+        keys[event.key] = false;
+        console.log(keys);
+      }
+
+      document.addEventListener("keydown", move);
+      document.addEventListener("keyup", stop);
+
+      function play() {
+        if (keys.ArrowRight) {
+          pos += 5;
+          target.style.transform = `translateX(${pos}px)`;
+        }
+        if (keys.ArrowLeft) {
+          pos -= 5;
+          target.style.transform = `translateX(${pos}px)`;
+        }
+        console.log("play!");
+        window.requestAnimationFrame(play);
+      }
+
+      window.requestAnimationFrame(play);
+    </script>
+  </body>
+</html>
+<!-- ArrowLeft	37
+rrowRight	39 -->

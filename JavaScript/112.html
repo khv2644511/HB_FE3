@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .target {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: pink;
+        /* transform: translateX(100px); */
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="target"></div>
+    <script>
+      //   const box = document.querySelector(".target");
+      //   let count = 0;
+
+      //   document.addEventListener("keydown", (event) => {
+      //     count++;
+      //     if (event.keyCode === 39) {
+      //       console.log("오른쪽");
+      //       console.log(count);
+
+      //       box.style.transform = `translateX(calc(10px*${count}))`;
+      //     } else if (event.keyCode === 37) {
+      //       console.log("완쪽");
+      //       box.style.transform = `translateX(calc(-10px*${count}))`;
+      //     }
+      //   });
+
+      const target = document.querySelector(".target");
+      let pos = 0;
+
+      document.addEventListener("keydown", move);
+
+      function move(event) {
+        const keyName = event.key;
+        console.log(keyName);
+
+        if (keyName === "ArrowRight") {
+          pos += 5;
+          target.style.transform = `translateX(${pos}px)`;
+        }
+        if (keyName === "ArrowLeft") {
+          pos -= 5;
+
+          target.style.transform = `translateX(${pos}px)`;
+        }
+      }
+    </script>
+  </body>
+</html>
+<!-- ArrowLeft	37
+rrowRight	39 -->
