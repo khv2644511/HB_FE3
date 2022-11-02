@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # 1. 자료구조와 알고리즘, 코딩테스트
 
 - 추천 서적
@@ -993,6 +995,297 @@ l.append(30);
 ```
 
 ### 1.4.3 트리와 그래프
+
+```js
+const tree = {
+  root: {
+    value: 5,
+    left: {
+      value: 3,
+      left: null,
+      right: null,
+    },
+    right: {
+      value: 8,
+      left: null,
+      right: null,
+    },
+  },
+};
+
+const tree = {
+  root: {
+    value: 5,
+    left: {
+      value: 3,
+      left: {
+        value: 1,
+        left: null,
+        right: null,
+      },
+      right: {
+        value: 4,
+        left: null,
+        right: null,
+      },
+    },
+    right: {
+      value: 8,
+      left: {
+        value: 6,
+        left: null,
+        right: null,
+      },
+      right: {
+        value: 69,
+        left: null,
+        right: null,
+      },
+    },
+  },
+};
+
+tree.root.left.left.value; //1
+```
+
+object나 array로 tree나 linked listf를 구현할 수 있는데 왜 class로 구현할까?
+
+1. 더 lite한 모델을 만들기
+2. 확장성(메서드 같은 것을 만들 수 있음)
+
+// node를 만들어서 삽입하는 식으로 구현
+
+```js
+const root = {
+  value: 55,
+  left: null,
+  right: null,
+};
+
+node1 = { value: 53, left: null, right: null };
+node2 = { value: 99, left: null, right: null };
+node3 = { value: 37, left: null, right: null };
+node4 = { value: 54, left: null, right: null };
+
+root.left = node1;
+root.right = node2;
+
+node1.left = node3;
+node1.right = node4;
+
+root.root;
+// 55
+root.right.value;
+// 99
+root.left.value;
+// 53
+root.left.left.value;
+// 37
+```
+
+tree class로 구현
+
+```js
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+let root = new Node(55);
+let node1 = new Node(53);
+let node2 = new Node(99);
+let node3 = new Node(37);
+let node4 = new Node(54);
+
+root.left = node1;
+root.right = node2;
+
+node1.left = node3;
+node1.right = node4;
+
+root.data;
+// 55
+root.left.data;
+// 53
+root.left.left.data;
+// 37
+root.left.right.data;
+// 54
+```
+
+- 트리 구현
+
+* Tree 데이터 삽입
+
+```js
+class Node {
+  constructor(data) {
+    this.data = data;
+    // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class Tree {
+  constructor(data) {
+    let init = new Node(data);
+    this.root = init;
+    this.length = 0;
+  }
+
+  // length(){ // this.length와 이름이 같아서 작동하지 않습니다.
+  //     return this.length
+  // }
+
+  insert(data) {
+    let 새로운노드 = new Node(data);
+    let 순회용현재노드 = this.root;
+
+    while (순회용현재노드) {
+      if (data == 순회용현재노드.data) {
+        // 들어온 값이 존재하는 값이면 트리에 값을 추가하지 않습니다.
+        return;
+      } else if (data < 순회용현재노드.data) {
+        // 들어온 데이터가 작은 경우 왼쪽에 붙여야 합니다!
+        // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+
+        // !null = true 비어있으면 실행
+        if (!순회용현재노드.left) {
+          순회용현재노드.left = 새로운노드;
+          this.length += 1;
+          return;
+        }
+        순회용현재노드 = 순회용현재노드.left;
+      } else if (data > 순회용현재노드.data) {
+        // 들어온 데이터가 큰 경우 오른쪽에 붙여야 합니다!
+        // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+        if (!순회용현재노드.right) {
+          순회용현재노드.right = 새로운노드;
+          this.length += 1;
+          return;
+        }
+        순회용현재노드 = 순회용현재노드.right;
+      }
+    }
+  }
+}
+
+let t = new Tree(5);
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(7);
+```
+
+- Tree 데이터 순회
+
+```js
+class Node {
+  constructor(data) {
+    this.data = data;
+    // this.child = [] // 2진트리가 아닌 트리를 만들 때 사용할 수 있습니다.
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class Tree {
+  constructor(data) {
+    let init = new Node(data);
+    this.root = init;
+    this.length = 0;
+  }
+
+  // length(){ // this.length와 이름이 같아서 작동하지 않습니다.
+  //     return this.length
+  // }
+
+  insert(data) {
+    let 새로운노드 = new Node(data);
+    let 순회용현재노드 = this.root;
+
+    while (순회용현재노드) {
+      if (data == 순회용현재노드.data) {
+        // 들어온 값이 존재하는 값이면 트리에 값을 추가하지 않습니다.
+        return;
+      } else if (data < 순회용현재노드.data) {
+        // 들어온 데이터가 작은 경우 왼쪽에 붙여야 합니다!
+        // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+
+        // !null = true 비어있으면 실행
+        if (!순회용현재노드.left) {
+          순회용현재노드.left = 새로운노드;
+          this.length += 1;
+          return;
+        }
+        순회용현재노드 = 순회용현재노드.left;
+      } else if (data > 순회용현재노드.data) {
+        // 들어온 데이터가 큰 경우 오른쪽에 붙여야 합니다!
+        // 해당 데이터 부분이 비어있으면 데이터를 넣고, 비어있지 않으면 계속 타고 내려가야 합니다.
+        if (!순회용현재노드.right) {
+          순회용현재노드.right = 새로운노드;
+          this.length += 1;
+          return;
+        }
+        순회용현재노드 = 순회용현재노드.right;
+      }
+    }
+  }
+  // 깊스너큐
+  DFS() {
+    // 깊이우선탐색
+    // Stack
+    let 방문경로 = [];
+    let 스택 = [this.root];
+
+    while (스택.length !== 0) {
+      let current = 스택.pop();
+
+      if (current.right) {
+        스택.push(current.right);
+      }
+      if (current.left) {
+        스택.push(current.left);
+      }
+      방문경로.push(current.data);
+    }
+    return 방문경로;
+  }
+
+  BFS() {
+    // 너비우선탐색, BFS(Breadth First Search)
+    // Queue 이용!
+    let 방문경로 = [];
+    let 큐 = [this.root];
+
+    while (큐.length !== 0) {
+      let current = 큐.shift();
+      if (current.right) {
+        큐.push(current.right);
+      }
+      if (current.left) {
+        큐.push(current.left);
+      }
+      방문경로.push(current.data);
+    }
+
+    return 방문경로;
+  }
+}
+let t = new Tree(5);
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(7);
+```
 
 ### 1.4.4 정렬 알고리즘
 
