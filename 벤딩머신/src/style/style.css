@@ -138,6 +138,11 @@ body {
   font-size: 13px;
 }
 
+.btn-get {
+  background-color: #6327fe;
+  color: #fff;
+}
+
 .cont-buy .info-balance {
   padding: 6px 10px;
   background-color: #eae8fe;
