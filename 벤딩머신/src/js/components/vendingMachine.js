@@ -63,6 +63,8 @@ class Vendingmachine {
      * 반환 버튼을 누르면 잔액 창은 초기화됩니다.
      */
     this.btnReturn.addEventListener("click", (event) => {
+      // 위에서 정의했는데 또 해줘야하나??
+
       const balanceVal = parseInt(this.balance.textContent.replaceAll(",", ""));
       const myMoneyVal = parseInt(this.myMoney.textContent.replaceAll(",", ""));
 
