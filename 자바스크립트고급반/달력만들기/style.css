@@ -1,0 +1,38 @@
+/** @format */
+#calendar {
+  padding: 20px;
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+}
+
+table {
+  margin: 0 auto;
+}
+
+caption {
+  font-size: 25px;
+  color: orange;
+  margin: 10px;
+}
+
+th,
+td {
+  width: 30px;
+  padding: 10px;
+  border: 1px solid #666;
+  border-collapse: collapse;
+}
+
+th:first-child,
+td:first-child {
+  color: red;
+}
+
+.prev,
+.next {
+  color: inherit;
+  padding: 10px;
+  margin: 5px;
+  background-color: #333;
+}
