@@ -129,20 +129,25 @@
     <script>
         function calendar(newYear, newMonth) {
             const time = new Date(newYear, newMonth - 1, 1);
+            console.log('time: ' + time)
             // const timeLength = 32 - new Date(newYear, newMonth - 1, 32).getDate();
+            const timeLength1 = new Date(newYear, newMonth, 0);
+            console.log('timeLength1: ' + timeLength1)
             const timeLength = new Date(newYear, newMonth, 0).getDate();
+            console.log('timeLength: ' + timeLength)
 
             let year = time.getFullYear(),
                 month = time.getMonth(),
                 date = time.getDate(),
                 day = time.getDay();
-
+            console.log('year: ' + year, 'month: ' + month, 'date: ' + date, 'day: ' + day)
             const captionYear = document.querySelector('.year'),
                 captionMonth = document.querySelector('.month'),
                 timeEl = document.querySelector('time'),
                 days = document.querySelectorAll('tr td');
 
             for (let i = 0; i < days.length; i++) {
+                console.log(i)
                 days[i].innerHTML = '&nbsp;';
             }
 
