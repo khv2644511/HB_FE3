@@ -1,16 +1,18 @@
 {
   "product": [
     {
-      "productName": "김혜빈감자",
-      "price": "260000000",
+      "productName": "ㄴㄴㄴㄴㄴㄴ",
+      "price": "222",
       "id": 1
     },
     {
-      "productName": "",
+      "productName": "ㄴㄴㄴㄴㄴㄴ",
+      "price": "222",
       "id": 2
     },
     {
-      "productName": "",
+      "productName": "ㄴㄴㄴㄴㄴㄴ",
+      "price": "222",
       "id": 3
     },
     {
@@ -31,32 +33,9 @@
       "modDate": "2022-02-28"
     },
     {
-      "id": 5,
-      "productName": "Hack Your Life 개발자 노트북 파우치",
-      "price": 36000,
-      "stockCount": 230,
-      "thumbnailImg": "asset/img/5/thumbnailImg.jpg",
-      "option": [
-        {
-          "id": 1,
-          "optionName": "13인치",
-          "additionalFee": 0
-        },
-        {
-          "id": 2,
-          "optionName": "15인치",
-          "additionalFee": 1000
-        }
-      ],
-      "discountRate": 19,
-      "shippingFee": 1500,
-      "detailInfoImage": [
-        "asset/detail/5/detail1.png",
-        "asset/detail/5/detail2.png"
-      ],
-      "viewCount": 0,
-      "pubDate": "2022-02-28",
-      "modDate": "2022-02-28"
+      "productName": "",
+      "price": "",
+      "id": 5
     },
     {
       "id": 6,
@@ -112,40 +91,14 @@
       "modDate": "2022-02-28"
     },
     {
-      "productName": "겁나빨라 마우스",
-      "price": "25000",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "2022-11-22",
-      "modDate": "2022-11-22",
+      "productName": "",
+      "price": "",
       "id": 8
-    },
-    {
-      "productName": "오징어",
-      "price": "100",
-      "stockCount": "1",
-      "viewCount": 0,
-      "pubDate": "",
-      "modDate": "",
-      "id": 9
-    },
-    {
-      "productName": "ㅁㅁㅁㅁㅁㅁ",
-      "price": "22",
-      "stockCount": "22",
-      "viewCount": 0,
-      "pubDate": "2022-11-16",
-      "modDate": "2022-11-16",
-      "id": 10
     },
     {
       "productName": "",
       "price": "",
-      "stockCount": "",
-      "viewCount": 0,
-      "pubDate": "",
-      "modDate": "",
-      "id": 11
+      "id": 9
     }
   ]
 }

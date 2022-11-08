@@ -100,31 +100,29 @@
 
         // 상품 업데이트 핸들러
         const handleUpdate = (event) => {
-            console.log("눌렀다.");
+            // console.log("눌렀다.");
 
             // const $modyBtn = document.querySelector(".modify");
             const $modyBtn = event.currentTarget.dataset.num
-            console.log($modyBtn)
+            // console.log($modyBtn)
 
-            const productInfo = {
+            let productInfo = {
                 productName: document.querySelector(".modify_inp").value,
                 price: document.querySelector(".modify_price_inp").value,
             };
+            console.log(productInfo['productName'])
+            const $productName = document.querySelector("h2");
+            const $price = document.querySelector("p");
 
+            $productName.innerText = item.productName;
+            $price.innerText = item.price;
             const id = $modyBtn
             fetch(`http://localhost:3001/product/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(productInfo),
             })
-                .then((response) => response.json())
-                .then((item) => {
-                    const $productName = document.querySelector("h2");
-                    const $price = document.querySelector("p");
 
-                    $productName.innerText = item.productName;
-                    $price.innerText = item.price;
-                });
 
         };
 
