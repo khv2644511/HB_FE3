@@ -174,32 +174,27 @@
         console.log(productData);
         return (
           <ul>
+            <h1>hiu</h1>
             <ProductInfo item={productData[0]} />
-            <ProductInfo item={productData[1]} />
-            <ProductInfo item={productData[2]} />
-            <ProductInfo item={productData[3]} />
-            <ProductInfo item={productData[4]} />
-            <ProductInfo item={productData[5]} />
           </ul>
         );
       }
+
       function ProductInfo(props) {
-        // ProductInfo({item})
-        console.log(props.item);
         return (
           <li>
             <img
               src={"http://test.api.weniv.co.kr/" + props.item["thumbnailImg"]}
               alt=""
             />
-            <p>{props.item["productName"]}</p>
-            <p>하트</p>
-            <p>{parseInt(props.item["price"] + 10000) * 0.2}</p>
+            <p>상품이름:{props.item["productName"]}</p>
+            <p>상품가격:{props.item["price"]}</p>
           </li>
         );
       }
+
       function ShoppingCart() {
-        return <p>쇼핑카드</p>;
+        return <p> 쇼핑 카트 </p>;
       }
 
       const app = (

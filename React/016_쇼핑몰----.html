@@ -170,31 +170,76 @@
         },
       ];
 
+      /* step1 */
+      //   function ProductList() {
+      //     // console.log(productData);
+      //     {
+      //       /* {[]} 이런 형식으로도 가능 */
+      //     }
+      //     return (
+      //       <ul>
+      //         {[
+      //           <ProductInfo item={productData[0]} />,
+      //           <ProductInfo item={productData[1]} />,
+      //           <ProductInfo item={productData[2]} />,
+      //           <ProductInfo item={productData[3]} />,
+      //           <ProductInfo item={productData[4]} />,
+      //           <ProductInfo item={productData[5]} />,
+      //         ]}
+      //       </ul>
+      //     );
+      //   }
+
+      {
+        /* step2 */
+      }
+      // function ProductList() {
+      //     console.log(productData)
+      //     let result = []
+      //     productData.forEach(i => {
+      //         result.push(<ProductInfo item={i} key={i.id} />)
+      //         console.log(i)
+      //     })
+      //     console.log(result)
+      //     return (
+      //         <ul>
+      //             {result}
+      //         </ul>
+      //     );
+      // }
+
+      {
+        /* step3 */
+      }
       function ProductList() {
-        console.log(productData);
+        productData
+          .filter((v) => v.price <= 10000)
+          .map((i) => {
+            console.log(i);
+          });
         return (
           <ul>
-            <ProductInfo item={productData[0]} />
-            <ProductInfo item={productData[1]} />
-            <ProductInfo item={productData[2]} />
-            <ProductInfo item={productData[3]} />
-            <ProductInfo item={productData[4]} />
-            <ProductInfo item={productData[5]} />
+            {productData
+              .filter((i) => i.price <= 10000)
+              .map((i) => (
+                <ProductInfo item={i} key={i.id} />
+              ))}
           </ul>
         );
       }
-      function ProductInfo(props) {
+
+      function ProductInfo({ item }) {
         // ProductInfo({item})
-        console.log(props.item);
+        // console.log(props.item);
         return (
           <li>
             <img
-              src={"http://test.api.weniv.co.kr/" + props.item["thumbnailImg"]}
+              src={"http://test.api.weniv.co.kr/" + item["thumbnailImg"]}
               alt=""
             />
-            <p>{props.item["productName"]}</p>
+            <p>{item["productName"]}</p>
             <p>하트</p>
-            <p>{parseInt(props.item["price"] + 10000) * 0.2}</p>
+            <p>{item["price"]}</p>
           </li>
         );
       }
