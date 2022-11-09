@@ -1,4 +1,4 @@
-export const productData = [
+export const data = [
     {
         "id": 1,
         "productName": "버그를 Java라 버그잡는 개리씨 키링 개발자키링 금속키링",
