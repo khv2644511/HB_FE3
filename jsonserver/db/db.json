@@ -1,19 +1,39 @@
 {
   "product": [
     {
-      "productName": "ㄴㄴㄴㄴㄴㄴ",
-      "price": "222",
-      "id": 1
+      "id": 2,
+      "productName": "우당탕탕 라이캣의 실험실 스티커 팩",
+      "price": 3500,
+      "stockCount": 1000,
+      "thumbnailImg": "asset/img/2/thumbnailImg.jpg",
+      "option": [],
+      "discountRate": 0,
+      "shippingFee": 1500,
+      "detailInfoImage": [
+        "asset/detail/2/detail1.png",
+        "asset/detail/2/detail2.png"
+      ],
+      "viewCount": 0,
+      "pubDate": "2022-02-28",
+      "modDate": "2022-02-28"
     },
     {
-      "productName": "ㄴㄴㄴㄴㄴㄴ",
-      "price": "222",
-      "id": 2
-    },
-    {
-      "productName": "ㄴㄴㄴㄴㄴㄴ",
-      "price": "222",
-      "id": 3
+      "id": 3,
+      "productName": "딥러닝 개발자 무릎 담요",
+      "price": 17500,
+      "stockCount": 0,
+      "thumbnailImg": "asset/img/3/thumbnailImg.jpg",
+      "option": [],
+      "discountRate": 0,
+      "shippingFee": 1500,
+      "detailInfoImage": [
+        "asset/detail/3/detail1.png",
+        "asset/detail/3/detail2.png",
+        "asset/detail/3/detail3.png"
+      ],
+      "viewCount": 0,
+      "pubDate": "2022-02-28",
+      "modDate": "2022-02-28"
     },
     {
       "id": 4,
@@ -33,9 +53,32 @@
       "modDate": "2022-02-28"
     },
     {
-      "productName": "",
-      "price": "",
-      "id": 5
+      "id": 5,
+      "productName": "Hack Your Life 개발자 노트북 파우치",
+      "price": 36000,
+      "stockCount": 230,
+      "thumbnailImg": "asset/img/5/thumbnailImg.jpg",
+      "option": [
+        {
+          "id": 1,
+          "optionName": "13인치",
+          "additionalFee": 0
+        },
+        {
+          "id": 2,
+          "optionName": "15인치",
+          "additionalFee": 1000
+        }
+      ],
+      "discountRate": 19,
+      "shippingFee": 1500,
+      "detailInfoImage": [
+        "asset/detail/5/detail1.png",
+        "asset/detail/5/detail2.png"
+      ],
+      "viewCount": 0,
+      "pubDate": "2022-02-28",
+      "modDate": "2022-02-28"
     },
     {
       "id": 6,
@@ -91,14 +134,31 @@
       "modDate": "2022-02-28"
     },
     {
-      "productName": "",
-      "price": "",
+      "productName": "감자밭고구마",
+      "price": "2000",
+      "stockCount": "10",
+      "viewCount": 0,
+      "pubDate": "",
+      "modDate": "",
       "id": 8
     },
     {
-      "productName": "",
-      "price": "",
+      "productName": "김치밭오징어",
+      "price": "5000",
+      "stockCount": "20",
+      "viewCount": 0,
+      "pubDate": "",
+      "modDate": "",
       "id": 9
+    },
+    {
+      "productName": "숙주마라맛감자",
+      "price": "2010",
+      "stockCount": "10",
+      "viewCount": 0,
+      "pubDate": "2022-11-17",
+      "modDate": "2022-11-17",
+      "id": 10
     }
   ]
 }
