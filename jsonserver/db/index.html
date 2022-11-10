@@ -158,8 +158,12 @@
           stockCountLabel.appendChild(stockCount);
         }
         // input이 존재하면 input에 작성한 내용으로 수정
-        else {
-          event.preventDefault();
+        else if (
+          $container.querySelector("input") &&
+          $container.querySelector("input").value
+        ) {
+          console.log($container.querySelector("input").value);
+          // event.preventDefault();
 
           const inputName = $container.querySelector("input[type=text]");
           const inputPrice = $container.querySelector("input[type=number]");
