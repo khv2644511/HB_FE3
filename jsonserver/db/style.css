@@ -1,0 +1,74 @@
+.main {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#btn-register {
+  display: block;
+  margin: 2rem auto;
+}
+
+section {
+  display: block;
+  position: relative;
+  flex-direction: column;
+  border: 2px solid pink;
+  border-radius: 10px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  background-color: rgb(240, 191, 191);
+  cursor: pointer;
+}
+
+.update {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  align-items: center;
+  width: fit-content;
+  color: black;
+  background-color: rgb(167, 167, 240);
+  margin-bottom: 3rem;
+}
+
+.delete {
+  position: absolute;
+  right: 2rem;
+  top: 7rem;
+  align-items: center;
+  width: fit-content;
+  color: red;
+  background-color: rgb(240, 191, 191);
+}
+
+.update,
+.delete {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+label {
+  display: block;
+}
+
+.inp_name,
+.inp_price,
+.inp_stock {
+  margin-left: 2rem;
+}
+
+.inp_stock {
+  margin-left: 3.7rem;
+}
+
+.inp_name::before {
+  display: block;
+  content: "--";
+}

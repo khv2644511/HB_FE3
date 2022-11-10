@@ -5,27 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제코베 스토어 관리자 페이지 CRUD</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <button id="btn-load">상품불러오기</button>
+    <div class="main">
+      <span>버튼을 클릭해서 상품을 불러오세요</span>
+      <button id="btn-load">상품불러오기</button>
 
-    <br /><br />
-    <label for="inp-name">상품이름</label>
-    <input id="inp-name" type="text" />
+      <br /><br />
+      <label for="inp-name">상품이름</label>
+      <input id="inp-name" type="text" />
 
-    <br /><br />
-    <label for="inp-price">제품가격</label>
-    <input id="inp-price" type="number" />
+      <br /><br />
+      <label for="inp-price">제품가격</label>
+      <input id="inp-price" type="number" />
 
-    <br /><br />
-    <label for="inp-stock">재고</label>
-    <input id="inp-stock" type="number" />
+      <br /><br />
+      <label for="inp-stock">재고</label>
+      <input id="inp-stock" type="number" />
 
-    <br /><br />
-    <label for="inp-date">출시날짜</label>
-    <input id="inp-date" type="date" />
+      <br /><br />
+      <label for="inp-date">출시날짜</label>
+      <input id="inp-date" type="date" />
 
-    <button type="button" id="btn-register">상품등록하기</button>
+      <button type="button" id="btn-register">상품등록하기</button>
+    </div>
 
     <script>
       // 수정버튼 클릭 시 새로고침 없애기..!!!
@@ -38,12 +42,15 @@
         const $btnUpdate = document.createElement("button");
         const $btnDelete = document.createElement("button");
 
+        $btnUpdate.type = "button";
+
         $productName.innerText = item.productName;
         $price.innerText = item.price;
         $btnUpdate.innerText = "수정하기";
         $btnDelete.innerText = "삭제하기";
 
         $btnUpdate.classList.add("update");
+        $btnDelete.classList.add("delete");
 
         $container.appendChild($productName);
         $container.appendChild($price);
@@ -52,9 +59,10 @@
 
         document.body.appendChild($container);
 
-        $btnUpdate.addEventListener("click", (event) =>
-          updateItem(item, $container)
-        );
+        $btnUpdate.addEventListener("click", (event) => {
+          event.preventDefault();
+          updateItem(item, $container);
+        });
 
         $btnDelete.addEventListener("click", (event) =>
           deleteItem(item, $container)
@@ -82,7 +90,7 @@
       const btnRegister = document.querySelector("#btn-register");
       btnRegister.addEventListener("click", (event) => {
         // console.log("눌렀다.");
-
+        event.preventDefault();
         const productInfo = {
           productName: document.querySelector("#inp-name").value,
           price: document.querySelector("#inp-price").value,
@@ -108,14 +116,15 @@
       //   update
       const updateItem = (item, $container) => {
         event.preventDefault();
+
         console.log("click");
         const h2 = $container.querySelector("h2");
         const p = $container.querySelector("p");
         // input 요소를 생성
         if (!$container.querySelector("input")) {
+          event.preventDefault();
+
           // 수정하기 버튼을 클릭한 아이템과 섹션을 가져온다
-          const h2 = $container.querySelector("h2");
-          const p = $container.querySelector("p");
           const $btnUpdate = $container.querySelector(".update");
 
           const productNameLabel = document.createElement("label");
@@ -126,18 +135,32 @@
           const price = document.createElement("input");
           const stockCount = document.createElement("input");
 
+          productName.classList.add("inp_name");
+          price.classList.add("inp_price");
+          stockCount.classList.add("inp_stock");
+
           productName.type = "text";
           price.type = "number";
           stockCount.type = "number";
           stockCount.classList.add("stock");
 
-          $container.append(productName);
+          productNameLabel.textContent = "상품이름";
+          priceLabel.textContent = "제품가격";
+          stockCountLabel.textContent = "재고";
 
-          $container.append(price);
-          $container.append(stockCount);
+          $container.append(productNameLabel);
+          productNameLabel.appendChild(productName);
+
+          $container.append(priceLabel);
+          priceLabel.appendChild(price);
+
+          $container.append(stockCountLabel);
+          stockCountLabel.appendChild(stockCount);
         }
         // input이 존재하면 input에 작성한 내용으로 수정
         else {
+          event.preventDefault();
+
           const inputName = $container.querySelector("input[type=text]");
           const inputPrice = $container.querySelector("input[type=number]");
           const inputstockCount = $container.querySelector(".stock");
