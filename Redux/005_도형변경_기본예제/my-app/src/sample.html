@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+</head>
+
+<body>
+    <style>
+        div {
+            display: block;
+        }
+
+        .container {
+            border: 5px solid black;
+            padding: 10px;
+            width: 100px;
+            height: 200px;
+            display: inline-block;
+        }
+    </style>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', hyepRadius:'0px'});">사각형</button>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', hyepRadius:'5%'});">둥근사각형</button>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', hyepRadius:'50%'});">원</button>
+
+    <br />
+    <br />
+    <br />
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <!-- 
+    1. 새로운 컴포넌트가 생성이 될 때 코드가 늘어나지 않습니다.
+    2. 새로운 컴포넌트를 안에서만 코딩하면 됩니다. 
+    -->
+    <script>
+        // state는 현재 상태, action은 주문 받은 것! 
+        function reducer(state, action) {
+            console.log(state, action);
+            if (state === undefined) {
+                return {
+                    hojun: '5px solid black',
+                    hyepRadius: "0px"
+                }
+            }
+            var newState;
+            if (action.type === 'CHANGE_RADIUS') {
+                console.log(state)
+                newState = {
+                    ...state,
+                    borderRadius: action.hyepRadius
+                };
+            }
+            return newState;
+        }
+        // Redux는 cdn으로 생깁니다.
+        var store = Redux.createStore(
+            reducer,
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드
+        );
+
+        function one() {
+            var state = store.getState();
+            document.querySelector('#one').innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius}"></div>
+            `;
+        }
+        store.subscribe(one);
+        one();
+
+        function two() {
+            var state = store.getState();
+            document.querySelector('#two').innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius}"></div>
+            `;
+        }
+        store.subscribe(two);
+        two();
+
+        function three() {
+            var state = store.getState();
+            document.querySelector('#three').innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius}"></div>
+            `;
+        }
+        store.subscribe(three);
+        three();
+    </script>
+</body>
+
+</html>
