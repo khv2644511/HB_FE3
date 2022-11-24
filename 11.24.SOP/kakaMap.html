@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=103b457624ff59fcf9fe1f001abd87da"></script>
+
+</head>
+<!-- 1. http://192.168.45.26:5501
+/마지막에 슬래쉬 들어가지 않게 하기!! 
+
+2. 현재 port: 5501 => 5502 로 바꿔보기
+"liveServer.settings.port": 5502,
+=> 실행되지 않음 401 인증에러날 것임
+-->
+<div id="map" style="width:500px;height:400px;"></div>
+
+
+<script>
+    var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+    var options = { //지도를 생성할 때 필요한 기본 옵션
+        center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        level: 3 //지도의 레벨(확대, 축소 정도)
+    };
+
+    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+</script>
+
+<body>
+
+</body>
+
+</html>

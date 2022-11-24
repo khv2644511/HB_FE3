@@ -16,7 +16,7 @@
 // export default One;
 
 import React from "react";
-import useInput from "../Hook/useInput";
+import useInput from "../../../../037_Custom_Hook/my-app/src/Hook/useInput";
 
 function InputComponent() {
   const [value, onChange] = useInput("");
