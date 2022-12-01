@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- 사용자가 입력한 비밀번호를 벨리데이션하는 폼을 만들어 봅시다.
+    input은 비밀번호, 비밀번호 확인 두 가지가 있어야하며
+
+    이때 만약 
+    1. input에 아무것도 입력하지 않았거나
+    2. 비밀번호 input과 비밀번호 확인 input의 값이 동일하지 않거나,
+    3. 비밀번호의 패턴이 정규표현식과 일치하지 않은 경우
+
+    에러메시지를 출력하도록 만들어보세요 -->
+    <form action="">
+        <label for="pw"> 비밀번호 : </label>
+        <input type="text" id="pw" pattern="(?=.*[!@#$%^&*()_+=-])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}" required>
+
+        <label for="pwConfirm"> 비밀번호 확인 : </label>
+        <input type="text" id="pwConfirm" pattern="(?=.*[!@#$%^&*()_+=-])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}"
+            required>
+
+        <button>제출</button>
+    </form>
+    <script>
+        const inps = document.querySelectorAll('input')
+        const btn = document.querySelector('button')
+        const pwArr = []
+        btn.addEventListener('click', () => {
+            inps.forEach(item => {
+                pwArr.push(item.value)
+                validate(item)
+                // console.log(item.value)
+            })
+            if (samePw(pwArr)) {
+                console.log('ehd')
+            }
+        })
+
+        function validate(item) {
+            // console.log(item.validity)
+            // console.log(item.value)
+            // 1. input에 아무것도 입력하지 않았거나
+
+            if (item.validity.valueMissing) {
+                item.setCustomValidity('아무것도 입력되지 않았습니다')
+            }
+            // 2. 비밀번호 input과 비밀번호 확인 input의 값이 동일하지 않거나,
+
+
+            // 3. 비밀번호의 패턴이 정규표현식과 일치하지 않은 경우
+
+            else {
+                item.setCustomValidity('')
+            }
+        }
+
+        function samePw(pwArr) {
+            return pwArr[0] === pwArr[1] ? true : false
+        }
+
+    </script>
+</body>
+
+</html>

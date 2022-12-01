@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <form action="">
+        <label for="txt">숫자 입력 : </label>
+        <input type="text" id="txt" required pattern="[0-9]" />
+        <button>제출</button>
+    </form>
+
+    <script>
+        const inp = document.querySelector('input')
+        inp.addEventListener('input', () => {
+            console.log(inp.validity)
+        })
+        /**
+         * ValidityState {
+         *   badInput: false,  // 잘못된 입력
+         *   customError: false, // 커스텀 오류
+         *   patternMismatch: false, // 패턴 오류
+         *   rangeOverflow: false, // 범위 초과 오류
+         *   rangeUnderflow: false, // 범위 미달 오류
+         *   stepMismatch: false, // 간격 오류
+         *   tooLong: false, // 길이 오류
+         *   tooShort: false, // 길이 오류
+         *   typeMismatch: false, // 타입 오류
+         *   valid: false, // 검증 결과
+         *   valueMissing: true // 필수값 오류
+         * }
+   */
+    </script>
+</body>
+
+</html>
